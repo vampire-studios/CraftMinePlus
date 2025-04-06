@@ -8,12 +8,13 @@ import net.minecraft.server.commands.LevelCommand;
 import net.minecraft.server.commands.RoomCommand;
 import net.minecraft.server.commands.UnlockCommand;
 import net.minecraft.server.commands.UnlockWorldEffectCommand;
+import org.spongepowered.asm.mixin.MixinEnvironment;
 
 public class CraftminePlus implements ModInitializer {
 
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath("craftmine_plus", path);
-	}
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath("craftmine_plus", path);
+    }
 
 	@Override
 	public void onInitialize() {
@@ -24,11 +25,13 @@ public class CraftminePlus implements ModInitializer {
 		CMPEntities.init();
 		CMPSpecialMines.init();
 
-		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
-			LevelCommand.register(commandDispatcher, commandBuildContext);
-			UnlockCommand.register(commandDispatcher, commandBuildContext);
-			UnlockWorldEffectCommand.register(commandDispatcher, commandBuildContext);
-			RoomCommand.register(commandDispatcher);
-		});
-	}
+        CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
+            LevelCommand.register(commandDispatcher, commandBuildContext);
+            UnlockCommand.register(commandDispatcher, commandBuildContext);
+            UnlockWorldEffectCommand.register(commandDispatcher, commandBuildContext);
+            RoomCommand.register(commandDispatcher);
+        });
+
+        MixinEnvironment.getCurrentEnvironment().audit();
+    }
 }

@@ -56,7 +56,7 @@ public class PlayerUnlockBuilderMixin implements PlayerUnlockDuck.BuilderDuck {
     }
 
     @Override
-    public PlayerUnlock.Builder craftMinePlus$markNamespaced() {
+    public PlayerUnlock.Builder craftMinePlus$namespaced() {
         this.namespaced = true;
         var displayAccessor = (DisplayInfo.Builder & DisplayInfoBuilderAccessor) this.display;
         var description = displayAccessor.craftmine_plus$description();
