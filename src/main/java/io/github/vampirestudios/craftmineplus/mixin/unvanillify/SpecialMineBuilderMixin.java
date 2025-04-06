@@ -1,13 +1,16 @@
 package io.github.vampirestudios.craftmineplus.mixin.unvanillify;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import io.github.vampirestudios.craftmineplus.pond.SpecialMineDuck;
 import net.minecraft.world.level.mines.SpecialMine;
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Slice;
 
+@Debug(export = true)
 @Mixin(SpecialMine.Builder.class)
 public class SpecialMineBuilderMixin implements SpecialMineDuck.BuilderDuck {
     @Unique
@@ -19,18 +22,19 @@ public class SpecialMineBuilderMixin implements SpecialMineDuck.BuilderDuck {
         return (SpecialMine.Builder) (Object) this;
     }
 
+    @Definition(
+            id = "translatable",
+            method = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;"
+    )
+    @Definition(
+            id = "key",
+            field = "Lnet/minecraft/world/level/mines/SpecialMine$Builder;key:Ljava/lang/String;"
+    )
+    @Expression("translatable(? + @(this.key) + ?)")
     @ModifyExpressionValue(
             method = "build",
             at = @At(
-                    value = "FIELD",
-                    target = "Lnet/minecraft/world/level/mines/SpecialMine$Builder;key:Ljava/lang/String;"
-            ),
-            slice = @Slice(
-                    to = @At(
-                            value = "FIELD",
-                            target = "Lnet/minecraft/world/level/mines/SpecialMine$Builder;key:Ljava/lang/String;",
-                            ordinal = 1 // first two only
-                    )
+                    value = "MIXINEXTRAS:EXPRESSION"
             )
     )
     private String fixTranslationKeys(String original) {
