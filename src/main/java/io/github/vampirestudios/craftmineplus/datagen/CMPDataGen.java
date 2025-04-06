@@ -1,5 +1,6 @@
 package io.github.vampirestudios.craftmineplus.datagen;
 
+import io.github.vampirestudios.craftmineplus.init.CMPItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -10,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import org.jetbrains.annotations.Nullable;
@@ -41,7 +43,7 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
 
 		@Override
 		public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-
+			itemModelGenerators.generateFlatItem(CMPItems.TRASH, ModelTemplates.FLAT_ITEM);
 		}
 	}
 
@@ -112,6 +114,21 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
 		@Override
 		public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder translationBuilder) {
 
+			//Items
+			translationBuilder.add("item.craftmine_plus.trash","Trash");
+			translationBuilder.add("item.craftmine_plus.grappling_hook", "Grappling Hook");
+
+			//World Effects
+
+			//Player Unlocks
+			translationBuilder.add("unlocks.unlock.craftmine_plus_short.name","Short");
+			translationBuilder.add("unlocks.unlock.craftmine_plus_short.description","Your short now.");
+
+			translationBuilder.add("unlocks.unlock.craftmine_plus_smol.name","Smol :3");
+			translationBuilder.add("unlocks.unlock.craftmine_plus_smol.description","U ar so smol now UwU. <3");
+
+			translationBuilder.add("unlocks.unlock.craftmine_plus_trashy.name","Trashy");
+			translationBuilder.add("unlocks.unlock.craftmine_plus_trashy.description","You keep finding this everywhere.");
 		}
 	}
 }
