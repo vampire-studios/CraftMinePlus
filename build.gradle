@@ -12,19 +12,10 @@ base {
 
 loom {
     accessWidenerPath = file("src/main/resources/craftmine_plus.accesswidener")
-    runs {
-        datagenClient {
-            client()
-            name 'Data Generation Client'
-            vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-            vmArg "-Dfabric-api.datagen.existing-dir=${file("src/main/resources")}"
-            vmArg "-Dfabric-api.datagen.strict_validation=false"
+}
 
-            ideConfigGenerated = true
-            runDir "build/datagen"
-        }
-    }
+fabricApi {
+    configureDataGeneration()
 }
 
 sourceSets {

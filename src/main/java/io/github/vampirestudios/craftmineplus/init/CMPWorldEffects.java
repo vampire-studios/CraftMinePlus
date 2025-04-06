@@ -23,7 +23,7 @@ public class CMPWorldEffects {
 	public static WorldEffect MAGMA_BOSS_FIGHT;
 
 	public static void init() {
-		MINESHAFT = WorldEffectDuck.builder(CraftminePlus.id("mine_shaft"))
+		MINESHAFT = WorldEffectDuck.namespacedBuilder(CraftminePlus.id("mine_shaft"))
 				.modifyingWorldGen(worldGenBuilder -> {
 					worldGenBuilder
 							.changeNoiseGeneration(builder -> builder.defaultBlock(Blocks.OAK_PLANKS.defaultBlockState()))
@@ -35,29 +35,29 @@ public class CMPWorldEffects {
 				.inSet(WorldEffects.WORLD_TYPE)
 				.unlockedBy(UnlockCondition.usedItem((level, player, itemStack) -> itemStack.is(Items.STONE)))
 				.register();
-		NETHER_WORLD = WorldEffectDuck.builder(CraftminePlus.id("nether_world"))
+		NETHER_WORLD = WorldEffectDuck.namespacedBuilder(CraftminePlus.id("nether_world"))
 				.modifyingWorldGen(
 						worldGenBuilder -> worldGenBuilder.setNoiseGenerationBase(NoiseGeneratorSettings.NETHER)
 								.withSpawnStrategy(MineSpawnStrategy.CAVE)
 								.changeDimensionType(DimensionType::withAmbientLight)
 				)
-				.withCustomIcon("nether_world")
+				.craftMinePlus$withCustomIcon(CraftminePlus.id("nether_world"))
 				.inSet(WorldEffects.WORLD_TYPE)
 				.unlockedAfter(WorldEffects.SURFACE_WORLD)
 				.unlockedBy(UnlockCondition.playerKilledEntity(EntityType.WITHER))
 				.register();
-		END_WORLD = WorldEffectDuck.builder(CraftminePlus.id("end_world"))
+		END_WORLD = WorldEffectDuck.namespacedBuilder(CraftminePlus.id("end_world"))
 				.modifyingWorldGen(
 						worldGenBuilder -> worldGenBuilder.setNoiseGenerationBase(NoiseGeneratorSettings.END)
 								.withSpawnStrategy(MineSpawnStrategy.SURFACE)
 								.changeDimensionType(DimensionType::withAmbientLight)
 				)
-				.withCustomIcon("end_world")
+				.craftMinePlus$withCustomIcon(CraftminePlus.id("end_world"))
 				.inSet(WorldEffects.WORLD_TYPE)
 				.unlockedAfter(NETHER_WORLD)
 				.unlockedBy(UnlockCondition.playerKilledEntity(EntityType.ENDERMAN))
 				.register();
-		MAGMA_BOSS_FIGHT = WorldEffect.builder("magma_boss")
+		MAGMA_BOSS_FIGHT = WorldEffectDuck.namespacedBuilder(CraftminePlus.id("magma_boss"))
 				.withItemModelOf(Items.MAGMA_CREAM)
 				.onMineEnter(serverLevel -> serverLevel.startEvent(
 						Battle.builder(serverLevel, "magma_boss")
