@@ -30,7 +30,5 @@ public class CraftminePlus implements ModInitializer {
             UnlockWorldEffectCommand.register(commandDispatcher, commandBuildContext);
             RoomCommand.register(commandDispatcher);
         });
-
-        MixinEnvironment.getCurrentEnvironment().audit();
     }
 }
