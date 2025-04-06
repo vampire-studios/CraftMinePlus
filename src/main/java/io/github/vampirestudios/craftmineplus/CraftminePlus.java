@@ -1,10 +1,6 @@
 package io.github.vampirestudios.craftmineplus;
 
-import io.github.vampirestudios.craftmineplus.init.CMPEvents;
-import io.github.vampirestudios.craftmineplus.init.CMPEntities;
-import io.github.vampirestudios.craftmineplus.init.CMPItems;
-import io.github.vampirestudios.craftmineplus.init.CMPPlayerUnlocks;
-import io.github.vampirestudios.craftmineplus.init.CMPWorldEffects;
+import io.github.vampirestudios.craftmineplus.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +22,7 @@ public class CraftminePlus implements ModInitializer {
 		CMPItems.init();
 		CMPEvents.init();
 		CMPEntities.init();
+		CMPSpecialMines.init();
 
 		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
 			LevelCommand.register(commandDispatcher, commandBuildContext);
