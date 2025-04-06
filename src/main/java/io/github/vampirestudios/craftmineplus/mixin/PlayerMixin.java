@@ -12,8 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.io.IOException;
-
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity {
 
@@ -25,7 +23,7 @@ public abstract class PlayerMixin extends LivingEntity {
             method = "tick",
             at = @At("TAIL")
     )
-    private void craftmineplus$tick(CallbackInfo ci) {
+    private void craftmine_plus$tick(CallbackInfo ci) {
         Player player = ((Player)(Object)this);
         Level level = player.level();
 

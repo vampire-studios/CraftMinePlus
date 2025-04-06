@@ -2,9 +2,6 @@ package io.github.vampirestudios.craftmineplus.init;
 
 import io.github.vampirestudios.craftmineplus.event.PlayerMineTickCallback;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.Items;
-
-import java.util.Random;
 
 public class CMPEvents {
 
