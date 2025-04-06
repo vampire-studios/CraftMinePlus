@@ -4,9 +4,10 @@
 	"package": "io.github.vampirestudios.craftmineplus.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"DisplayInfoBuilderAccessor",
-		"PlayerUnlockBuilderMixin",
-		"PlayerMixin"
+		"PlayerMixin",
+		"unvanillify.DisplayInfoBuilderAccessor",
+		"unvanillify.PlayerUnlockBuilderMixin",
+		"unvanillify.WorldEffectBuilderMixin"
 	],
 	"client": [
 	],

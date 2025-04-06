@@ -1,4 +1,4 @@
-package io.github.vampirestudios.craftmineplus.mixin;
+package io.github.vampirestudios.craftmineplus.mixin.unvanillify;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

@@ -5,9 +5,6 @@ import io.github.vampirestudios.craftmineplus.pond.PlayerUnlockDuck;
 import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.players.PlayerUnlock;
 import net.minecraft.server.players.PlayerUnlocks;
 import net.minecraft.world.effect.MobEffects;
@@ -157,9 +154,5 @@ public class CMPPlayerUnlocks {
                 .withPrice(25)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
                 .register();
-    }
-
-    public static Holder<PlayerUnlock> register(PlayerUnlock playerUnlock) {
-        return Registry.registerForHolder(BuiltInRegistries.PLAYER_UNLOCK, ResourceLocation.bySeparator(playerUnlock.key().replaceFirst("-", ":"), ':'), playerUnlock);
     }
 }

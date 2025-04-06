@@ -37,7 +37,10 @@
         "loom:injected_interfaces": {
             "net/minecraft/class_10976\u0024class_10977": [
               "io/github/vampirestudios/craftmineplus/pond/PlayerUnlockDuck\u0024BuilderDuck"
-            ]
+            ],
+			"net/minecraft/class_11109\u0024class_11110": [
+				"io/github/vampirestudios/craftmineplus/pond/WorldEffectDuck\u0024BuilderDuck"
+			]
         }
     }
 }

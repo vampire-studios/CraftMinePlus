@@ -1,4 +1,4 @@
-package io.github.vampirestudios.craftmineplus.mixin;
+package io.github.vampirestudios.craftmineplus.mixin.unvanillify;
 
 import net.minecraft.advancements.DisplayInfo;
 import net.minecraft.network.chat.Component;
