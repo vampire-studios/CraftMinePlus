@@ -7,6 +7,9 @@
 	],
 	"client": [
 	],
+	"mixinextras": {
+		"minVersion": "0.5.0-rc.1"
+	},
 	"injectors": {
 		"defaultRequire": 1
 	}

@@ -1,2 +1,3 @@
 accessWidener v2 named
 accessible method net/minecraft/world/level/mines/WorldEffect$Builder build ()Lnet/minecraft/world/level/mines/WorldEffect;
+accessible method net/minecraft/server/players/PlayerUnlock$Builder build ()Lnet/minecraft/server/players/PlayerUnlock;
