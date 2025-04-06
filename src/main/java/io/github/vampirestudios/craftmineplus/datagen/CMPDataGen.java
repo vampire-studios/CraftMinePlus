@@ -17,6 +17,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.server.players.PlayerUnlock;
+import net.minecraft.world.level.mines.SpecialMine;
 import net.minecraft.world.level.mines.WorldEffect;
 import org.jetbrains.annotations.Nullable;
 
@@ -135,6 +136,12 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
             builder.add("world.effect." + key + ".name", name);
             builder.add("world.effect." + key + ".description", description);
             builder.add("world.effect." + key + ".hint", hint);
+        }
+
+        private void addSpecialMine(TranslationBuilder builder, SpecialMine mine, String name, String description) {
+            var key = mine.key().replace(":", "_");
+            builder.add("mine." + key + ".name", name);
+            builder.add("mine." + key + ".description", description);
         }
     }
 }
