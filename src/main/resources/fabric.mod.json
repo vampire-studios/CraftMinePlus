@@ -4,7 +4,11 @@
 	"version": "${version}",
 	"name": "CraftMine+",
 	"description": "",
-	"authors": [],
+	"authors": [
+		"OliviaTheVampire",
+		"StellarWind22",
+		"DB20"
+	],
 	"contact": {},
 	"license": "MIT",
 	"icon": "assets/craftmineplus/icon.png",

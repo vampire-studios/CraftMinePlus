@@ -1,0 +1,17 @@
+package io.github.vampirestudios.craftmineplus.init;
+
+import io.github.vampirestudios.craftmineplus.event.PlayerMineTickCallback;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Items;
+
+public class CMPEvents {
+
+    public static void init() {
+
+        //Trash Event
+        PlayerMineTickCallback.EVENT.register((player) -> {
+            player.addOrDropItem(Items.DIRT.getDefaultInstance().copyWithCount(1));
+            return InteractionResult.PASS;
+        });
+    }
+}
