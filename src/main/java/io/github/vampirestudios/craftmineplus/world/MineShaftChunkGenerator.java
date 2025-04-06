@@ -1,4 +1,4 @@
-package io.github.vampirestudios.craftmineplus;
+package io.github.vampirestudios.craftmineplus.world;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

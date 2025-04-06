@@ -7,7 +7,7 @@
 	"authors": [],
 	"contact": {},
 	"license": "MIT",
-	"icon": "assets/craftmineplus/icon.png",
+	"icon": "assets/craftmine_plus/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
@@ -15,6 +15,9 @@
 		],
 		"main": [
 			"io.github.vampirestudios.craftmineplus.CraftminePlus"
+		],
+		"fabric-datagen": [
+			"io.github.vampirestudios.craftmineplus.datagen.CMPDataGen"
 		]
 	},
 	"accessWidener": "craftmine_plus.accesswidener",
