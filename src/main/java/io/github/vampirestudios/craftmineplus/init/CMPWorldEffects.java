@@ -1,7 +1,7 @@
 package io.github.vampirestudios.craftmineplus.init;
 
 import io.github.vampirestudios.craftmineplus.CraftminePlus;
-import io.github.vampirestudios.craftmineplus.MineShaftChunkGenerator;
+import io.github.vampirestudios.craftmineplus.world.MineShaftChunkGenerator;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
