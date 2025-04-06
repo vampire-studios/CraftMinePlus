@@ -1,5 +1,6 @@
 package io.github.vampirestudios.craftmineplus;
 
+import io.github.vampirestudios.craftmineplus.init.CMPPlayerUnlocks;
 import io.github.vampirestudios.craftmineplus.init.CMPWorldEffects;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -15,6 +16,7 @@ public class CraftminePlus implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		CMPWorldEffects.init();
+		CMPPlayerUnlocks.init();
 
 		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
 			LevelCommand.register(commandDispatcher, commandBuildContext);
