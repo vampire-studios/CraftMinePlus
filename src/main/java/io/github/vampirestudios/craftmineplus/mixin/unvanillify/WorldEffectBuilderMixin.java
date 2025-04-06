@@ -54,12 +54,7 @@ public abstract class WorldEffectBuilderMixin implements WorldEffectDuck.Builder
     }
 
     @Override
-    public WorldEffect.Builder craftMinePlus$withItemModel(ResourceLocation resourceLocation) {
-        return this.withItemModel(resourceLocation);
-    }
-
-    @Override
-    public WorldEffect.Builder craftMinePlus$markNamespaced() {
+    public WorldEffect.Builder craftMinePlus$namespaced() {
         this.namespaced = true;
         return (WorldEffect.Builder) (Object) this;
     }

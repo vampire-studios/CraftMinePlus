@@ -14,7 +14,7 @@ public class CMPWorldEffects {
     public static WorldEffect MINESHAFT;
 
     public static void init() {
-        MINESHAFT = WorldEffectDuck.builder(CraftminePlus.id("mine_shaft"))
+        MINESHAFT = WorldEffectDuck.namespacedBuilder(CraftminePlus.id("mine_shaft"))
                 .modifyingWorldGen(worldGenBuilder -> {
                     worldGenBuilder
                             .changeNoiseGeneration(builder -> builder.defaultBlock(Blocks.OAK_PLANKS.defaultBlockState()))

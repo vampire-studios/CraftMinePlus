@@ -40,6 +40,9 @@
             ],
 			"net/minecraft/class_11109\u0024class_11110": [
 				"io/github/vampirestudios/craftmineplus/pond/WorldEffectDuck\u0024BuilderDuck"
+			],
+			"net/minecraft/class_11105\u0024class_11106": [
+				"io/github/vampirestudios/craftmineplus/pond/SpecialMineDuck\u0024BuilderDuck"
 			]
         }
     }
