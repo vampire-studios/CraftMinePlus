@@ -1,5 +1,7 @@
 package io.github.vampirestudios.craftmineplus.mixin.unvanillify;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -9,7 +11,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.mines.WorldEffect;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Slice;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -25,17 +26,13 @@ public abstract class WorldEffectBuilderMixin implements WorldEffectDuck.Builder
     @Unique
     private boolean namespaced = false;
 
+    @Definition(id = "translatable", method = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;")
+    @Definition(id = "key", field = "Lnet/minecraft/world/level/mines/WorldEffect$Builder;key:Ljava/lang/String;")
+    @Expression("translatable(? + @(this.key) + ?)")
     @ModifyExpressionValue(
             method = "build",
             at = @At(
-                    value = "FIELD",
-                    target = "Lnet/minecraft/world/level/mines/WorldEffect$Builder;key:Ljava/lang/String;"
-            ),
-            slice = @Slice(
-                    to = @At(
-                            value = "INVOKE:FIRST",
-                            target = "Ljava/util/List;isEmpty()Z"
-                    )
+                    value = "MIXINEXTRAS:EXPRESSION"
             )
     )
     private String modifyTranslationKeyToRemoveColon(String key) {
