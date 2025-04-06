@@ -36,7 +36,7 @@ public class PlayerUnlockBuilderMixin implements PlayerUnlockDuck.BuilderDuck {
     )
     private ResourceLocation addModNamespacesToAttributeModifiers(String string, Operation<ResourceLocation> original) {
         if (this.namespaced) {
-            return Objects.requireNonNull(ResourceLocation.tryParse(this.key), "invalid resource location").withPrefix("unlock_");
+            return Objects.requireNonNull(ResourceLocation.bySeparator(this.key, ':'), "invalid resource location").withPrefix("unlock_");
         }
         return original.call(string);
     }
@@ -50,7 +50,7 @@ public class PlayerUnlockBuilderMixin implements PlayerUnlockDuck.BuilderDuck {
     )
     private ResourceLocation addModNamespacesToRegistration(String string, Operation<ResourceLocation> original) {
         if (this.namespaced) {
-            return Objects.requireNonNull(ResourceLocation.tryParse(this.key), "invalid resource location");
+            return Objects.requireNonNull(ResourceLocation.bySeparator(this.key, ':'), "invalid resource location");
         }
         return original.call(string);
     }
