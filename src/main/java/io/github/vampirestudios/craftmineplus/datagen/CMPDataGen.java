@@ -1,5 +1,6 @@
 package io.github.vampirestudios.craftmineplus.datagen;
 
+import io.github.vampirestudios.craftmineplus.init.CMPItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -10,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import org.jetbrains.annotations.Nullable;
@@ -41,7 +43,8 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
 
 		@Override
 		public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-
+			itemModelGenerators.generateFlatItem(CMPItems.TRASH, ModelTemplates.FLAT_ITEM);
+			itemModelGenerators.generateFlatItem(CMPItems.GRAPPLING_HOOK, ModelTemplates.FLAT_ITEM);
 		}
 	}
 
@@ -111,7 +114,12 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
 
 		@Override
 		public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder translationBuilder) {
-
+			translationBuilder.add(CMPItems.TRASH, "Trash");
+			translationBuilder.add(CMPItems.GRAPPLING_HOOK, "Grappling Hook");
+			translationBuilder.add("unlocks.unlock.short.name", "Short");
+			translationBuilder.add("unlocks.unlock.short.description", "Become short.");
+			translationBuilder.add("unlocks.unlock.smol.name", "Smol");
+			translationBuilder.add("unlocks.unlock.smol.description", "Become very smol UwU.");
 		}
 	}
 }
