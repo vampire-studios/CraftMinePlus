@@ -32,5 +32,12 @@
 		"fabricloader": ">=0.16.12",
 		"fabric": "*",
 		"minecraft": "1.21.6-alpha.25.14.craftmine"
-	}
+	},
+    "custom": {
+        "loom:injected_interfaces": {
+            "net/minecraft/class_10976\u0024class_10977": [
+              "io/github/vampirestudios/craftmineplus/pond/PlayerUnlockDuck\u0024BuilderDuck"
+            ]
+        }
+    }
 }
