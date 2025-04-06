@@ -41,81 +41,72 @@ public class CMPPlayerUnlocks {
     public static Holder<PlayerUnlock> MOB_BEACON;
 
     public static void init() {
-        SHORT = register(PlayerUnlockDuck.child(CraftminePlus.id("short"), PlayerUnlocks.SCHOOL_OF_HARD_KNOCKS)
+        SHORT = PlayerUnlockDuck.child(CraftminePlus.id("short"), PlayerUnlocks.SCHOOL_OF_HARD_KNOCKS)
                 .withIcon(Items.DRAGON_BREATH)
                 .withPrice(5)
                 .givesAttributeModifier(Attributes.SCALE, -0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
-                .build()
-        );
-        SMOL = register(PlayerUnlockDuck.child(CraftminePlus.id("smol"), SHORT)
+                .register();
+        SMOL = PlayerUnlockDuck.child(CraftminePlus.id("smol"), SHORT)
                 .withIcon(Items.DRAGON_BREATH)
                 .withPrice(10)
                 .givesAttributeModifier(Attributes.SCALE, -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
-                .build()
-        );
+                .register();
 
-        HEAVY_BURDEN = register(PlayerUnlockDuck.child(CraftminePlus.id("heavy_burden"), SMOL)
+        HEAVY_BURDEN = PlayerUnlockDuck.child(CraftminePlus.id("heavy_burden"), SMOL)
                 .withIcon(Items.IRON_BLOCK)
                 .givesEffectInMine(MobEffects.SLOWNESS, 1200, 0) // 1-minute Slowness effect, level 0
                 .withPrice(15)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        WEAKENED_RESOLVE = register(PlayerUnlockDuck.child(CraftminePlus.id("weakened_resolve"), HEAVY_BURDEN)
+        WEAKENED_RESOLVE = PlayerUnlockDuck.child(CraftminePlus.id("weakened_resolve"), HEAVY_BURDEN)
                 .withIcon(Items.WITHER_ROSE)
                 .givesAttributeModifier(Attributes.MAX_HEALTH, -4.0, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(20)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        CLUMSY_FIGHTER = register(PlayerUnlockDuck.child(CraftminePlus.id("clumsy_fighter"), WEAKENED_RESOLVE)
+        CLUMSY_FIGHTER = PlayerUnlockDuck.child(CraftminePlus.id("clumsy_fighter"), WEAKENED_RESOLVE)
                 .withIcon(Items.WOODEN_SWORD)
                 .givesAttributeModifier(Attributes.ATTACK_SPEED, -1.0, AttributeModifier.Operation.ADD_VALUE)
                 .givesAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, -0.3, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(25)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        BLAZING_VULNERABILITY = register(PlayerUnlockDuck.child(CraftminePlus.id("blazing_vulnerability"), CLUMSY_FIGHTER)
+        BLAZING_VULNERABILITY = PlayerUnlockDuck.child(CraftminePlus.id("blazing_vulnerability"), CLUMSY_FIGHTER)
                 .withIcon(Items.BLAZE_POWDER)
                 .givesAttributeModifier(Attributes.BURNING_TIME, 1.0, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                 .givesAttributeModifier(Attributes.EXPERIENCE_GAIN_MODIFIER, -0.2, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                 .withPrice(30)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        SHAKY_GROUND = register(PlayerUnlockDuck.child(CraftminePlus.id("shaky_ground"), BLAZING_VULNERABILITY)
+        SHAKY_GROUND = PlayerUnlockDuck.child(CraftminePlus.id("shaky_ground"), BLAZING_VULNERABILITY)
                 .withIcon(Items.SLIME_BLOCK)
                 .givesEffectInMine(MobEffects.LEVITATION, 40, 0) // 2-second Levitation to simulate a tremor
                 .givesAttributeModifier(Attributes.EXPERIENCE_GAIN_MODIFIER, -0.3, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                 .withPrice(35)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        MOB_BEACON = register(PlayerUnlockDuck.child(CraftminePlus.id("mob_beacon"), SHAKY_GROUND)
+        MOB_BEACON = PlayerUnlockDuck.child(CraftminePlus.id("mob_beacon"), SHAKY_GROUND)
                 .withIcon(Items.CREEPER_HEAD)
                 .givesEffectInMine(MobEffects.GLOWING, 1200, 0) // 1-minute Glowing effect
                 .givesAttributeModifier(Attributes.EXPERIENCE_GAIN_MODIFIER, -0.4, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                 .withPrice(40)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        NIGHT_VISION_GOGGLES = register(PlayerUnlockDuck.child(CraftminePlus.id("night_vision_goggles"), MOVEMENT_SPEED_3)
+        NIGHT_VISION_GOGGLES = PlayerUnlockDuck.child(CraftminePlus.id("night_vision_goggles"), MOVEMENT_SPEED_3)
                 .withIcon(Items.SPYGLASS)
                 .givesEffectInMine(MobEffects.NIGHT_VISION, 1200, 0)
                 .withPrice(30)
                 .withVisibility(PlayerUnlock.UnlockVisibility.INVISIBLE)
                 .becomesVisibleWhen(UnlockCondition.unlocked(MOVEMENT_SPEED_3))
-                .build()
-        );
+                .register();
 
-        ANVIL_MASTER = register(PlayerUnlockDuck.child(CraftminePlus.id("anvil_master"), SMELT_VALUE_2)
+        ANVIL_MASTER = PlayerUnlockDuck.child(CraftminePlus.id("anvil_master"), SMELT_VALUE_2)
                 .withIcon(Items.ANVIL)
                 .givesItemStackInMine(
                         Items.ANVIL.getDefaultInstance(),
@@ -124,19 +115,17 @@ public class CMPPlayerUnlocks {
                 .withPrice(20)
                 .withVisibility(PlayerUnlock.UnlockVisibility.INVISIBLE)
                 .becomesVisibleWhen(UnlockCondition.unlocked(SMELT_VALUE_2))
-                .build()
-        );
+                .register();
 
-        FORAGERS_LUCK = register(PlayerUnlockDuck.child(CraftminePlus.id("foragers_luck"), FISHING)
+        FORAGERS_LUCK = PlayerUnlockDuck.child(CraftminePlus.id("foragers_luck"), FISHING)
                 .withIcon(Items.WHEAT_SEEDS)
                 .givesAttributeModifier(Attributes.LUCK, 2.0, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(15)
                 .withVisibility(PlayerUnlock.UnlockVisibility.INVISIBLE)
                 .becomesVisibleWhen(UnlockCondition.unlocked(FISHING))
-                .build()
-        );
+                .register();
 
-        VAMPIRES_BLADE = register(PlayerUnlockDuck.child(CraftminePlus.id("vampires_blade"), BEST_STARTER_SWORD)
+        VAMPIRES_BLADE = PlayerUnlockDuck.child(CraftminePlus.id("vampires_blade"), BEST_STARTER_SWORD)
                 .withIcon(Items.NETHERITE_SWORD)
                 .givesEnchantedItemInMine(
                         Items.NETHERITE_SWORD,
@@ -147,31 +136,27 @@ public class CMPPlayerUnlocks {
                 .withPrice(60)
                 .withVisibility(PlayerUnlock.UnlockVisibility.MYSTERY)
                 .becomesVisibleWhen(UnlockCondition.playerKilledEntity((serverLevel, serverPlayer, entity) -> entity.getType() == EntityType.WITHER))
-                .build()
-        );
+                .register();
 
-        IRON_WILL = register(PlayerUnlockDuck.child(CraftminePlus.id("iron_will"), THORNS_PLUS_PLUS)
+        IRON_WILL = PlayerUnlockDuck.child(CraftminePlus.id("iron_will"), THORNS_PLUS_PLUS)
                 .withIcon(Items.IRON_BLOCK)
                 .givesAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, 0.5, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(50)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
 
-        ADVENTURER = register(PlayerUnlockDuck.createNamespaced(CraftminePlus.id("adventurer"), Optional.empty(), Optional.of(new ClientAsset(CraftminePlus.id("unlock_backgrounds/adventurer"))))
+        ADVENTURER = PlayerUnlockDuck.createNamespaced(CraftminePlus.id("adventurer"), Optional.empty(), Optional.of(new ClientAsset(CraftminePlus.id("unlock_backgrounds/adventurer"))))
                 .withIcon(Items.MAP)
                 .givesAttributeModifier(Attributes.MAX_HEALTH, 2.0, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(0)
-                .build()
-        );
+                .register();
 
-        TREASURE_HUNTER = register(PlayerUnlockDuck.child(CraftminePlus.id("treasure_hunter"), ADVENTURER)
+        TREASURE_HUNTER = PlayerUnlockDuck.child(CraftminePlus.id("treasure_hunter"), ADVENTURER)
                 .withIcon(Items.FILLED_MAP)
                 .givesAttributeModifier(Attributes.LUCK, 3.0, AttributeModifier.Operation.ADD_VALUE)
                 .withPrice(25)
                 .withVisibility(PlayerUnlock.UnlockVisibility.VISIBLE)
-                .build()
-        );
+                .register();
     }
 
     public static Holder<PlayerUnlock> register(PlayerUnlock playerUnlock) {
