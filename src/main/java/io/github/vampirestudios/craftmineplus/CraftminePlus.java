@@ -1,5 +1,6 @@
 package io.github.vampirestudios.craftmineplus;
 
+import io.github.vampirestudios.craftmineplus.init.CMPEntities;
 import io.github.vampirestudios.craftmineplus.init.CMPItems;
 import io.github.vampirestudios.craftmineplus.init.CMPPlayerUnlocks;
 import io.github.vampirestudios.craftmineplus.init.CMPWorldEffects;
@@ -22,6 +23,7 @@ public class CraftminePlus implements ModInitializer {
 		CMPWorldEffects.init();
 		CMPPlayerUnlocks.init();
 		CMPItems.init();
+		CMPEntities.init();
 
 		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
 			LevelCommand.register(commandDispatcher, commandBuildContext);
