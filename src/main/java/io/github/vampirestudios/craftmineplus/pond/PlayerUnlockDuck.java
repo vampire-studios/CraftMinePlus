@@ -8,21 +8,21 @@ import net.minecraft.server.players.PlayerUnlock;
 import java.util.Optional;
 
 public interface PlayerUnlockDuck {
-    static PlayerUnlock.Builder child(ResourceLocation rl, Holder<PlayerUnlock> parent) {
-        return PlayerUnlock.child(rl.toString(), parent).craftMinePlus$markNamespaced();
+    static PlayerUnlock.Builder namespacedChild(ResourceLocation rl, Holder<PlayerUnlock> parent) {
+        return PlayerUnlock.child(rl.toString(), parent).craftMinePlus$namespaced();
     }
 
-    static PlayerUnlock.Builder root(ResourceLocation rl) {
-        return new PlayerUnlock.Builder(rl.toString(), Optional.empty(), Optional.of(new ClientAsset(rl.withPrefix("unlock_backgrounds/")))).craftMinePlus$markNamespaced();
+    static PlayerUnlock.Builder namespacedRoot(ResourceLocation rl) {
+        return new PlayerUnlock.Builder(rl.toString(), Optional.empty(), Optional.of(new ClientAsset(rl.withPrefix("unlock_backgrounds/")))).craftMinePlus$namespaced();
     }
 
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-    static PlayerUnlock.Builder createNamespaced(ResourceLocation resourceLocation, Optional<Holder<PlayerUnlock>> parent, Optional<ClientAsset> background) {
-        return new PlayerUnlock.Builder(resourceLocation.toString(), parent, background).craftMinePlus$markNamespaced();
+    static PlayerUnlock.Builder namespacedBuilder(ResourceLocation resourceLocation, Optional<Holder<PlayerUnlock>> parent, Optional<ClientAsset> background) {
+        return new PlayerUnlock.Builder(resourceLocation.toString(), parent, background).craftMinePlus$namespaced();
     }
 
     interface BuilderDuck {
-        default PlayerUnlock.Builder craftMinePlus$markNamespaced() {
+        default PlayerUnlock.Builder craftMinePlus$namespaced() {
             throw new AssertionError("Implemented Via Mixin");
         }
     }

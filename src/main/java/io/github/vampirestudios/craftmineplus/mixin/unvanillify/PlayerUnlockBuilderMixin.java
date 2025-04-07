@@ -8,10 +8,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.players.PlayerUnlock;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Objects;
@@ -56,7 +53,7 @@ public class PlayerUnlockBuilderMixin implements PlayerUnlockDuck.BuilderDuck {
     }
 
     @Override
-    public PlayerUnlock.Builder craftMinePlus$markNamespaced() {
+    public PlayerUnlock.Builder craftMinePlus$namespaced() {
         this.namespaced = true;
         var displayAccessor = (DisplayInfo.Builder & DisplayInfoBuilderAccessor) this.display;
         var description = displayAccessor.craftmine_plus$description();
