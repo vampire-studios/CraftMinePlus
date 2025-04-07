@@ -16,13 +16,14 @@ public class CraftminePlus implements ModInitializer {
         return ResourceLocation.fromNamespaceAndPath("craftmine_plus", path);
     }
 
-    @Override
-    public void onInitialize() {
-        CMPWorldEffects.init();
-        CMPPlayerUnlocks.init();
-        CMPItems.init();
-        CMPEvents.init();
-        CMPEntities.init();
+	@Override
+	public void onInitialize() {
+		CMPWorldEffects.init();
+		CMPPlayerUnlocks.init();
+		CMPItems.init();
+		CMPEvents.init();
+		CMPEntities.init();
+		CMPSpecialMines.init();
 
         CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
             LevelCommand.register(commandDispatcher, commandBuildContext);
