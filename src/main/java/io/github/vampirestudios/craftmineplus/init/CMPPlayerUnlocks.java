@@ -23,6 +23,9 @@ public class CMPPlayerUnlocks {
 
     public static Holder<PlayerUnlock> SHORT;
     public static Holder<PlayerUnlock> SMOL;
+    public static Holder<PlayerUnlock> TRASHY;
+    public static Holder<PlayerUnlock> BAD_LUCK;
+
     public static Holder<PlayerUnlock> NIGHT_VISION_GOGGLES;
     public static Holder<PlayerUnlock> ANVIL_MASTER;
     public static Holder<PlayerUnlock> FORAGERS_LUCK;
@@ -43,10 +46,16 @@ public class CMPPlayerUnlocks {
                 .withPrice(5)
                 .givesAttributeModifier(Attributes.SCALE, -0.1, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
                 .register();
+
         SMOL = PlayerUnlockDuck.namespacedChild(CraftminePlus.id("smol"), SHORT)
                 .withIcon(Items.DRAGON_BREATH)
                 .withPrice(10)
                 .givesAttributeModifier(Attributes.SCALE, -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                .register();
+
+        TRASHY = PlayerUnlockDuck.namespacedChild(CraftminePlus.id("trashy"), SCHOOL_OF_HARD_KNOCKS)
+                .withIcon(CMPItems.TRASH)
+                .withPrice(10)
                 .register();
 
         HEAVY_BURDEN = PlayerUnlockDuck.namespacedChild(CraftminePlus.id("heavy_burden"), SMOL)

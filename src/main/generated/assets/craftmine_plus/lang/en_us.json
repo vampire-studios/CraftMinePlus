@@ -1,8 +1,8 @@
 {
   "item.craftmine_plus.grappling_hook": "Grappling Hook",
   "item.craftmine_plus.trash": "Trash",
-  "unlocks.unlock.short.description": "Become short.",
-  "unlocks.unlock.short.name": "Short",
-  "unlocks.unlock.smol.description": "Become very smol UwU.",
-  "unlocks.unlock.smol.name": "Smol"
+  "unlocks.unlock.craftmine_plus_short.description": "Your short now.",
+  "unlocks.unlock.craftmine_plus_short.name": "Short",
+  "unlocks.unlock.craftmine_plus_smol.description": "U ar verwy smol now UwU. <3",
+  "unlocks.unlock.craftmine_plus_smol.name": "Smol :3"
 }

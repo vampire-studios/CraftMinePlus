@@ -17,11 +17,15 @@ public class CraftminePlus implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		//Adds objects needed for other stuff
+		CMPItems.init();
+		CMPEntities.init();
+
+		//Does things with that
 		CMPWorldEffects.init();
 		CMPPlayerUnlocks.init();
-		CMPItems.init();
 		CMPEvents.init();
-		CMPEntities.init();
 		CMPSpecialMines.init();
 
         CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {

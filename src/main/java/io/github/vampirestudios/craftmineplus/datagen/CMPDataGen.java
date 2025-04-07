@@ -121,8 +121,8 @@ public class CMPDataGen implements DataGeneratorEntrypoint {
         public void generateTranslations(HolderLookup.Provider provider, TranslationBuilder translationBuilder) {
             translationBuilder.add(CMPItems.TRASH, "Trash");
             translationBuilder.add(CMPItems.GRAPPLING_HOOK, "Grappling Hook");
-            addUnlock(translationBuilder, CMPPlayerUnlocks.SHORT, "Short", "Become short.");
-            addUnlock(translationBuilder, CMPPlayerUnlocks.SMOL, "Smol", "Become very smol UwU.");
+            addUnlock(translationBuilder, CMPPlayerUnlocks.SHORT, "Short", "Your short now.");
+            addUnlock(translationBuilder, CMPPlayerUnlocks.SMOL, "Smol :3", "U ar verwy smol now UwU. <3");
         }
 
         private void addUnlock(TranslationBuilder builder, Holder<PlayerUnlock> unlock, String name, String description) {

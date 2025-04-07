@@ -15,16 +15,8 @@ loom {
 }
 
 fabricApi {
-    configureDataGeneration()
-}
-
-sourceSets {
-    main {
-        resources {
-            srcDirs += [
-                    'src/main/generated'
-            ]
-        }
+    configureDataGeneration {
+        client = true
     }
 }
 
@@ -41,6 +33,7 @@ dependencies {
 }
 
 processResources {
+
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "loader_version", project.loader_version
