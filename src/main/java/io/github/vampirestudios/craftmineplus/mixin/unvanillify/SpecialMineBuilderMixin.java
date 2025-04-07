@@ -5,12 +5,10 @@ import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import io.github.vampirestudios.craftmineplus.pond.SpecialMineDuck;
 import net.minecraft.world.level.mines.SpecialMine;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Debug(export = true)
 @Mixin(SpecialMine.Builder.class)
 public class SpecialMineBuilderMixin implements SpecialMineDuck.BuilderDuck {
     @Unique
