@@ -8,7 +8,6 @@ import net.minecraft.server.commands.LevelCommand;
 import net.minecraft.server.commands.RoomCommand;
 import net.minecraft.server.commands.UnlockCommand;
 import net.minecraft.server.commands.UnlockWorldEffectCommand;
-import org.spongepowered.asm.mixin.MixinEnvironment;
 
 public class CraftminePlus implements ModInitializer {
 
